@@ -57,7 +57,7 @@ The following remain private and are not included in the public package:
 - Internal architecture.
 - Full agent implementations.
 - Weights and model-specific internals.
-- Scoring logic and routing algorithms.
+- Scoring logic and algorithms.
 - Internal metrics and optimization strategies.
 - Orchestration systems and recovery mechanisms.
 - Arbitration logic.
