@@ -68,17 +68,15 @@ Any market-like endpoints in this repository are optional utilities or simulatio
 ## Private boundary
 
 The following remain private and are intentionally excluded from this public package:
-
-- Internal architecture.
-- Full agent implementations.
-- Weights, scoring logic, and routing algorithms.
-- Internal metrics and optimization strategies.
-- Orchestration systems.
-- Recovery mechanisms.
-- Arbitration logic.
-- Deployment infrastructure.
-- Proprietary runtime internals.
-
+•	Internal architecture.
+•	Full agent implementations.
+•	Scoring logic and routing rules.
+•	Internal metrics and optimization strategies.
+•	Orchestration systems.
+•	Recovery mechanisms.
+•	Arbitration logic.
+•	Deployment infrastructure.
+•	Proprietary runtime internals.
 Access to those components is available only under NDA or separate written agreement.
 
 ## Verification
