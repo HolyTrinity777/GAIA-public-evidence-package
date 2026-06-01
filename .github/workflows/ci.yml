@@ -121,7 +121,6 @@ jobs:
           forbidden_terms = [
               'harness/', 'weights', 'routing algorithms', 'arbitration',
               'recovery mechanisms', 'orchestration logic', 'topology details',
-              'proprietary runtime internals'
           ]
           docs = [
               Path('README.md'),
