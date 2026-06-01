@@ -22,7 +22,7 @@ Please include:
 A security issue includes, but is not limited to:
 
 - Leakage of private agent names or roles that were intended to remain redacted
-- Exposure of weights, scoring logic, or routing algorithms
+- Exposure of weights, scoring logic, etc.
 - Exposure of orchestration, recovery, or arbitration internals
 - Public artifacts that can be used to infer private system mechanics
 - Broken redaction in screenshots, traces, manifests, or logs
