@@ -1,0 +1,33 @@
+# CHECKSUMS
+
+This file should list the cryptographic hashes for the public files included in the GAIA public evidence package.
+
+## Format
+
+Use one line per file, in the following form:
+
+SHA256  <relative-path>  <hex-digest>
+
+## Example structure
+
+SHA256  README.md  <hash>
+SHA256  LICENSE.md  <hash>
+SHA256  PRIVATE_ACCESS.md  <hash>
+SHA256  SECURITY.md  <hash>
+SHA256  docs/SYSTEM_OVERVIEW.md  <hash>
+SHA256  docs/PUBLIC_SCOPE.md  <hash>
+SHA256  docs/API_SURFACE.md  <hash>
+SHA256  docs/VERIFICATION.md  <hash>
+SHA256  evidence/screenshots/01_global_state.png  <hash>
+SHA256  evidence/screenshots/02_state_hash.png  <hash>
+SHA256  evidence/screenshots/03_message_send_request.png  <hash>
+SHA256  evidence/screenshots/04_message_send_response.png  <hash>
+SHA256  evidence/screenshots/07_agents_list_redacted.png  <hash>
+SHA256  metadata/RELEASE_NOTES.md  <hash>
+SHA256  metadata/EVIDENCE_MANIFEST.json  <hash>
+
+## Rules
+
+- Hash only files that are part of the public evidence package.
+- Do not list private internals.
+- Regenerate this file whenever any public artifact changes.
