@@ -52,3 +52,5 @@ The guiding principle is simple:
 ## Contact
 
 Contact the copyright holder directly for private security reporting or NDA-bound review.
+
+**Email_ID** kaiven2342025@proton.me
