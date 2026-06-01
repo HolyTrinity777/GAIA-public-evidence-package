@@ -2,7 +2,7 @@
 
 GAIA — Global Governance Swarm — is a bounded multi-agent governance coordination system. It provides a single audited surface for shared state, inter-agent messaging, traceable decisions, and controlled state mutation.
 
-This repository is the **public evidence package** for GAIA. It contains observable behavior, redacted traces, screenshots, and verification artifacts. Core orchestration, proprietary agents, internal algorithms, weights, and private metrics remain private and are available only under NDA or separate written agreement.
+This repository is the **public evidence package** for GAIA. It contains observable behavior, redacted traces, screenshots, and verification artifacts. Core orchestration, proprietary agents, internal algorithms, any other things about agents, systems and private metrics remain private and are available only under NDA or separate written agreement.
 
 ## What GAIA is for
 
