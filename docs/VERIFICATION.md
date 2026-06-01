@@ -58,7 +58,6 @@ Ensure that screenshots, traces, and examples do not expose:
 - Full private agent names if those are considered sensitive.
 - Weights or scoring logic.
 - Internal orchestration or recovery mechanisms.
-- Routing algorithms.
 - Internal metrics that reveal the private core.
 
 ### Step 5 — Inspect state integrity evidence
