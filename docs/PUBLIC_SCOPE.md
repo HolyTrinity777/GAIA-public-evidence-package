@@ -60,7 +60,6 @@ The following remain private and are not included in the public package:
 - Scoring logic and algorithms.
 - Internal metrics and optimization strategies.
 - Orchestration systems and recovery mechanisms.
-- Arbitration logic.
 - Deployment infrastructure.
 - Proprietary runtime internals.
 
