@@ -1,0 +1,190 @@
+name: gaia-public-evidence-ci
+
+on:
+  push:
+    branches: [main, master, v*, release*]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify-public-evidence:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Verify public package layout
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          required = [
+              'README.md',
+              'LICENSE.md',
+              'PRIVATE_ACCESS.md',
+              'SECURITY.md',
+              'RELEASE_NOTES.md',
+              'EVIDENCE_MANIFEST.json',
+              'CHECKSUMS.txt',
+              'SYSTEM_OVERVIEW.md',
+              'PUBLIC_SCOPE.md',
+              'API_SURFACE.md',
+              'VERIFICATION.md',
+              'evidence/screenshots/01_global_state.png',
+              'evidence/screenshots/02_state_hash.png',
+              'evidence/screenshots/03_message_send_request.png',
+              'evidence/screenshots/04_message_send_response.png',
+              'evidence/screenshots/07_agents_list_redacted.png',
+          ]
+          missing = [p for p in required if not Path(p).exists()]
+          if missing:
+              raise SystemExit(f'Missing required public files: {missing}')
+          print('All required public files present.')
+          PY
+
+      - name: Validate manifest JSON
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data = json.loads(Path('EVIDENCE_MANIFEST.json').read_text())
+          expected = {
+              'README.md',
+              'LICENSE.md',
+              'PRIVATE_ACCESS.md',
+              'SECURITY.md',
+              'RELEASE_NOTES.md',
+              'EVIDENCE_MANIFEST.json',
+              'CHECKSUMS.txt',
+              'SYSTEM_OVERVIEW.md',
+              'PUBLIC_SCOPE.md',
+              'API_SURFACE.md',
+              'VERIFICATION.md',
+              'evidence/screenshots/01_global_state.png',
+              'evidence/screenshots/02_state_hash.png',
+              'evidence/screenshots/03_message_send_request.png',
+              'evidence/screenshots/04_message_send_response.png',
+              'evidence/screenshots/07_agents_list_redacted.png',
+          }
+          paths = {x['path'] for x in data.get('public_artifacts', [])}
+          missing = sorted(expected - paths)
+          extra = sorted(paths - expected)
+          if missing:
+              raise SystemExit(f'Manifest missing paths: {missing}')
+          if extra:
+              raise SystemExit(f'Manifest contains unexpected paths: {extra}')
+          print('Manifest paths validated.')
+          PY
+
+      - name: Validate checksums file
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          lines = Path('CHECKSUMS.txt').read_text().splitlines()
+          entries = [ln for ln in lines if ln.startswith('SHA256  ')]
+          required = [
+              'README.md',
+              'LICENSE.md',
+              'PRIVATE_ACCESS.md',
+              'SECURITY.md',
+              'RELEASE_NOTES.md',
+              'EVIDENCE_MANIFEST.json',
+              'SYSTEM_OVERVIEW.md',
+              'PUBLIC_SCOPE.md',
+              'API_SURFACE.md',
+              'VERIFICATION.md',
+              'evidence/screenshots/01_global_state.png',
+              'evidence/screenshots/02_state_hash.png',
+              'evidence/screenshots/03_message_send_request.png',
+              'evidence/screenshots/04_message_send_response.png',
+              'evidence/screenshots/07_agents_list_redacted.png',
+          ]
+          found = []
+          for e in entries:
+              parts = e.split()
+              if len(parts) >= 3:
+                  found.append(parts[1])
+          missing = sorted(set(required) - set(found))
+          if missing:
+              raise SystemExit(f'Checksums missing files: {missing}')
+          print('Checksums list validated.')
+          PY
+
+      - name: Detect public-scope leakage
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          forbidden_terms = [
+              'harness/', 'weights', 'routing algorithms', 'arbitration',
+              'recovery mechanisms', 'orchestration logic', 'topology details',
+              'proprietary runtime internals'
+          ]
+          docs = [
+              Path('README.md'),
+              Path('SYSTEM_OVERVIEW.md'),
+              Path('PUBLIC_SCOPE.md'),
+              Path('API_SURFACE.md'),
+              Path('VERIFICATION.md'),
+              Path('PRIVATE_ACCESS.md'),
+              Path('SECURITY.md'),
+              Path('RELEASE_NOTES.md'),
+          ]
+          for path in docs:
+              text = path.read_text().lower()
+              for term in forbidden_terms:
+                  if term in text:
+                      raise SystemExit(f'Forbidden reference found in {path}: {term}')
+          print('No forbidden public-scope leakage found.')
+          PY
+
+      - name: Compute SHA-256 checksums
+        run: |
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+          public_files = [
+              'README.md',
+              'LICENSE.md',
+              'PRIVATE_ACCESS.md',
+              'SECURITY.md',
+              'RELEASE_NOTES.md',
+              'EVIDENCE_MANIFEST.json',
+              'SYSTEM_OVERVIEW.md',
+              'PUBLIC_SCOPE.md',
+              'API_SURFACE.md',
+              'VERIFICATION.md',
+              'evidence/screenshots/01_global_state.png',
+              'evidence/screenshots/02_state_hash.png',
+              'evidence/screenshots/03_message_send_request.png',
+              'evidence/screenshots/04_message_send_response.png',
+              'evidence/screenshots/07_agents_list_redacted.png',
+          ]
+          def sha256(path: Path) -> str:
+              h = hashlib.sha256()
+              with path.open('rb') as f:
+                  for chunk in iter(lambda: f.read(8192), b''):
+                      h.update(chunk)
+              return h.hexdigest()
+          out = ['# CHECKSUMS', '', 'SHA256 hashes for public files in the GAIA public evidence package.', '']
+          for rel in public_files:
+              p = Path(rel)
+              if not p.exists():
+                  raise SystemExit(f'Missing file during hash generation: {rel}')
+              out.append(f'SHA256  {rel}  {sha256(p)}')
+          Path('CHECKSUMS.txt').write_text('\n'.join(out) + '\n')
+          print('CHECKSUMS.txt regenerated.')
+          PY
+
+      - name: Final artifact sanity check
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          for rel in ['CHECKSUMS.txt', 'EVIDENCE_MANIFEST.json', 'README.md']:
+              if not Path(rel).exists():
+                  raise SystemExit(f'Missing final artifact: {rel}')
+          print('Final sanity check passed.')
+          PY
