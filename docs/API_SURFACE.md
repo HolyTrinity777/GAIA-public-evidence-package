@@ -2,7 +2,7 @@
 
 This document describes the public-facing API surface that is available for evidence and review in the GAIA public package.
 
-The API is intentionally limited to observable governance behavior. It is not a disclosure of internal architecture, private orchestration logic, or proprietary swarm implementation.
+The API is intentionally limited to observable governance behavior. It is not a disclosure of internal architecture, private logic, or proprietary swarm implementation.
 
 ## Public endpoint groups
 
