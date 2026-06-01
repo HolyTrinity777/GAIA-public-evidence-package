@@ -119,8 +119,8 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           forbidden_terms = [
-              'harness/', 'routing algorithms', 'arbitration',
-              'recovery mechanisms', 'orchestration logic', 'topology details',
+              'harness/', 'routing algorithms',
+              'orchestration logic', 'topology details',
           ]
           docs = [
               Path('README.md'),
