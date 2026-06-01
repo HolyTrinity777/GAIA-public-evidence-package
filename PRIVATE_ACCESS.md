@@ -16,7 +16,7 @@ The following materials are private and are not included in the public evidence 
 - Recovery mechanisms
 - Arbitration logic
 - Deployment infrastructure
-- Topology details
+- Details
 - Proprietary runtime internals
 - Any unredacted trace, log, example, or artifact that reveals private mechanics
 
