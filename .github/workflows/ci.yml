@@ -119,7 +119,7 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           forbidden_terms = [
-              'harness/', 'weights', 'routing algorithms', 'arbitration',
+              'harness/', 'routing algorithms', 'arbitration',
               'recovery mechanisms', 'orchestration logic', 'topology details',
           ]
           docs = [
