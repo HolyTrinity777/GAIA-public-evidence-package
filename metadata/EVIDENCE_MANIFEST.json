@@ -1,0 +1,88 @@
+{
+  "repository": "GAIA Public Evidence Package",
+  "package_type": "public_evidence",
+  "release_version": "v1",
+  "purpose": "Document observable governance behavior and public-safe API evidence without exposing private internals.",
+  "public_artifacts": [
+    {
+      "path": "README.md",
+      "type": "documentation",
+      "description": "Public-facing introduction to GAIA and its evidence boundary."
+    },
+    {
+      "path": "LICENSE.md",
+      "type": "policy",
+      "description": "License for the public evidence package only."
+    },
+    {
+      "path": "PRIVATE_ACCESS.md",
+      "type": "policy",
+      "description": "NDA boundary and private-access definition."
+    },
+    {
+      "path": "SECURITY.md",
+      "type": "policy",
+      "description": "Security reporting and disclosure guidance."
+    },
+    {
+      "path": "docs/SYSTEM_OVERVIEW.md",
+      "type": "documentation",
+      "description": "High-level system overview with private internals excluded."
+    },
+    {
+      "path": "docs/PUBLIC_SCOPE.md",
+      "type": "documentation",
+      "description": "Definition of public, redacted, and private scope."
+    },
+    {
+      "path": "docs/API_SURFACE.md",
+      "type": "documentation",
+      "description": "Public API endpoints available for evidence review."
+    },
+    {
+      "path": "docs/VERIFICATION.md",
+      "type": "documentation",
+      "description": "How to verify the public evidence package."
+    },
+    {
+      "path": "evidence/screenshots/01_global_state.png",
+      "type": "screenshot",
+      "description": "Live global state snapshot."
+    },
+    {
+      "path": "evidence/screenshots/02_state_hash.png",
+      "type": "screenshot",
+      "description": "Integrity hash snapshot."
+    },
+    {
+      "path": "evidence/screenshots/03_message_send_request.png",
+      "type": "screenshot",
+      "description": "Public-safe message send request body."
+    },
+    {
+      "path": "evidence/screenshots/04_message_send_response.png",
+      "type": "screenshot",
+      "description": "Message send success response."
+    },
+    {
+      "path": "evidence/screenshots/07_agents_list_redacted.png",
+      "type": "screenshot",
+      "description": "Redacted agent list showing the swarm surface."
+    }
+  ],
+  "excluded_from_public_release": [
+    "Full agent implementations",
+    "Internal architecture and orchestration logic",
+    "Weights, scoring logic, and routing algorithms",
+    "Internal metrics and optimization strategies",
+    "Recovery mechanisms and arbitration logic",
+    "Deployment infrastructure and topology",
+    "Proprietary runtime internals",
+    "Any unredacted trace or artifact that reveals the private core"
+  ],
+  "integrity_notes": {
+    "scope": "The manifest covers only files publicly released in this package.",
+    "redaction_rule": "If an artifact can reveal the private core, it must be excluded or redacted.",
+    "review_rule": "Reviewers should verify that the documents, screenshots, and manifest all describe the same public package."
+  }
+}
