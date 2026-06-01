@@ -40,8 +40,8 @@ This package focuses on the following publicly observable properties:
 The following are intentionally excluded from this public release:
 
 - Full agent implementations.
-- Internal architecture and orchestration logic.
-- Weights, scoring logic, and routing algorithms.
+- Internal architecture, etc.
+- Weights, scoring logic,etc.
 - Internal metrics and optimization strategies.
 - Recovery mechanisms and arbitration logic.
 - Deployment infrastructure and topology.
