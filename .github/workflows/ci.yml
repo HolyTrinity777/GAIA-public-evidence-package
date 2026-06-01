@@ -27,13 +27,13 @@ jobs:
               'LICENSE.md',
               'PRIVATE_ACCESS.md',
               'SECURITY.md',
-              'RELEASE_NOTES.md',
-              'EVIDENCE_MANIFEST.json',
-              'CHECKSUMS.txt',
-              'SYSTEM_OVERVIEW.md',
-              'PUBLIC_SCOPE.md',
-              'API_SURFACE.md',
-              'VERIFICATION.md',
+              'metadata/RELEASE_NOTES.md',
+              'metadata/EVIDENCE_MANIFEST.json',
+              'metadata/CHECKSUMS.txt',
+              'metadata/SYSTEM_OVERVIEW.md',
+              'docs/PUBLIC_SCOPE.md',
+              'docs/API_SURFACE.md',
+              'docs/VERIFICATION.md',
               'evidence/screenshots/01_global_state.png',
               'evidence/screenshots/02_state_hash.png',
               'evidence/screenshots/03_message_send_request.png',
@@ -51,19 +51,19 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
-          data = json.loads(Path('EVIDENCE_MANIFEST.json').read_text())
+          data = json.loads(Path('metadata/EVIDENCE_MANIFEST.json').read_text())
           expected = {
               'README.md',
               'LICENSE.md',
               'PRIVATE_ACCESS.md',
               'SECURITY.md',
-              'RELEASE_NOTES.md',
-              'EVIDENCE_MANIFEST.json',
-              'CHECKSUMS.txt',
-              'SYSTEM_OVERVIEW.md',
-              'PUBLIC_SCOPE.md',
-              'API_SURFACE.md',
-              'VERIFICATION.md',
+              'metadata/RELEASE_NOTES.md',
+              'metadata/EVIDENCE_MANIFEST.json',
+              'metadata/CHECKSUMS.txt',
+              'metadata/SYSTEM_OVERVIEW.md',
+              'docs/PUBLIC_SCOPE.md',
+              'docs/API_SURFACE.md',
+              'docs/VERIFICATION.md',
               'evidence/screenshots/01_global_state.png',
               'evidence/screenshots/02_state_hash.png',
               'evidence/screenshots/03_message_send_request.png',
@@ -84,19 +84,19 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
-          lines = Path('CHECKSUMS.txt').read_text().splitlines()
+          lines = Path('metadata/CHECKSUMS.txt').read_text().splitlines()
           entries = [ln for ln in lines if ln.startswith('SHA256  ')]
           required = [
               'README.md',
               'LICENSE.md',
               'PRIVATE_ACCESS.md',
               'SECURITY.md',
-              'RELEASE_NOTES.md',
-              'EVIDENCE_MANIFEST.json',
-              'SYSTEM_OVERVIEW.md',
-              'PUBLIC_SCOPE.md',
-              'API_SURFACE.md',
-              'VERIFICATION.md',
+              'metadata/RELEASE_NOTES.md',
+              'metadata/EVIDENCE_MANIFEST.json',
+              'metadata/SYSTEM_OVERVIEW.md',
+              'docs/PUBLIC_SCOPE.md',
+              'docs/API_SURFACE.md',
+              'docs/VERIFICATION.md',
               'evidence/screenshots/01_global_state.png',
               'evidence/screenshots/02_state_hash.png',
               'evidence/screenshots/03_message_send_request.png',
@@ -125,13 +125,13 @@ jobs:
           ]
           docs = [
               Path('README.md'),
-              Path('SYSTEM_OVERVIEW.md'),
-              Path('PUBLIC_SCOPE.md'),
-              Path('API_SURFACE.md'),
-              Path('VERIFICATION.md'),
+              Path('metadata/SYSTEM_OVERVIEW.md'),
+              Path('docs/PUBLIC_SCOPE.md'),
+              Path('docs/API_SURFACE.md'),
+              Path('docs/VERIFICATION.md'),
               Path('PRIVATE_ACCESS.md'),
               Path('SECURITY.md'),
-              Path('RELEASE_NOTES.md'),
+              Path('metadata/RELEASE_NOTES.md'),
           ]
           for path in docs:
               text = path.read_text().lower()
@@ -151,12 +151,12 @@ jobs:
               'LICENSE.md',
               'PRIVATE_ACCESS.md',
               'SECURITY.md',
-              'RELEASE_NOTES.md',
-              'EVIDENCE_MANIFEST.json',
-              'SYSTEM_OVERVIEW.md',
-              'PUBLIC_SCOPE.md',
-              'API_SURFACE.md',
-              'VERIFICATION.md',
+              'metadata/RELEASE_NOTES.md',
+              'metadata/EVIDENCE_MANIFEST.json',
+              'metadata/SYSTEM_OVERVIEW.md',
+              'docs/PUBLIC_SCOPE.md',
+              'docs/API_SURFACE.md',
+              'docs/VERIFICATION.md',
               'evidence/screenshots/01_global_state.png',
               'evidence/screenshots/02_state_hash.png',
               'evidence/screenshots/03_message_send_request.png',
@@ -175,15 +175,17 @@ jobs:
               if not p.exists():
                   raise SystemExit(f'Missing file during hash generation: {rel}')
               out.append(f'SHA256  {rel}  {sha256(p)}')
-          Path('CHECKSUMS.txt').write_text('\n'.join(out) + '\n')
-          print('CHECKSUMS.txt regenerated.')
+          Path('metadata/CHECKSUMS.txt').write_text('
+'.join(out) + '
+')
+          print('metadata/CHECKSUMS.txt regenerated.')
           PY
 
       - name: Final artifact sanity check
         run: |
           python - <<'PY'
           from pathlib import Path
-          for rel in ['CHECKSUMS.txt', 'EVIDENCE_MANIFEST.json', 'README.md']:
+          for rel in ['metadata/CHECKSUMS.txt', 'metadata/EVIDENCE_MANIFEST.json', 'README.md']:
               if not Path(rel).exists():
                   raise SystemExit(f'Missing final artifact: {rel}')
           print('Final sanity check passed.')
