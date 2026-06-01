@@ -2,7 +2,7 @@
 
 GAIA — Global Governance Swarm — is a bounded multi-agent governance coordination system. It provides a single audited surface for shared state, inter-agent messaging, traceable decisions, and controlled state mutation.
 
-This repository is the **public evidence package** for GAIA. It contains observable behavior, redacted traces, screenshots, and verification artifacts. Core orchestration, proprietary agents, internal algorithms, any other things about agents, systems and private metrics remain private and are available only under NDA or separate written agreement.
+This repository is the **public evidence package** for GAIA. It contains observable behavior, redacted traces, screenshots, and verification artifacts. Core orchestration, proprietary agents, internal algorithms, and private metrics remain private and are available only under NDA or separate written agreement.
 
 ## What GAIA is for
 
@@ -53,11 +53,11 @@ The main public governance endpoints are:
 
 This public release is supported by the following screenshots:
 
-- `01_global_state.png`
-- `02_state_hash.png`
-- `03_message_send_request.png`
-- `04_message_send_response.png`
-- `07_agents_list_redacted.png`
+- `sov_01_global_state.png`
+- `sov_02_state_hash.png`
+- `sov_03_message_send_request.png`
+- `sov_04_message_send_response.png`
+- `sov_07_agents_list_redacted.png`
 
 These show the live state, integrity anchoring, bounded messaging, and active agent surface without exposing private internals.
 
@@ -68,15 +68,17 @@ Any market-like endpoints in this repository are optional utilities or simulatio
 ## Private boundary
 
 The following remain private and are intentionally excluded from this public package:
-•	Internal architecture.
-•	Full agent implementations.
-•	Scoring logic and routing rules.
-•	Internal metrics and optimization strategies.
-•	Orchestration systems.
-•	Recovery mechanisms.
-•	Arbitration logic.
-•	Deployment infrastructure.
-•	Proprietary runtime internals.
+
+- Internal architecture.
+- Full agent implementations.
+- Internal scoring and decision logic.
+- Internal metrics and optimization strategies.
+- Internal orchestration systems.
+- Internal fault handling and recovery design.
+- Internal conflict resolution design.
+- Deployment infrastructure.
+- Proprietary runtime internals.
+
 Access to those components is available only under NDA or separate written agreement.
 
 ## Verification
