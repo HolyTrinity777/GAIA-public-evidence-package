@@ -30,15 +30,15 @@ jobs:
               'metadata/RELEASE_NOTES.md',
               'metadata/EVIDENCE_MANIFEST.json',
               'metadata/CHECKSUMS.txt',
-              'metadata/SYSTEM_OVERVIEW.md',
+              'docs/SYSTEM_OVERVIEW.md',
               'docs/PUBLIC_SCOPE.md',
               'docs/API_SURFACE.md',
               'docs/VERIFICATION.md',
-              'evidence/screenshots/01_global_state.png',
-              'evidence/screenshots/02_state_hash.png',
-              'evidence/screenshots/03_message_send_request.png',
-              'evidence/screenshots/04_message_send_response.png',
-              'evidence/screenshots/07_agents_list_redacted.png',
+              'evidence/screenshots/sov_01_global_state.png',
+              'evidence/screenshots/sov_02_state_hash.png',
+              'evidence/screenshots/sov_03_message_send_request.png',
+              'evidence/screenshots/sov_04_message_send_response.png',
+              'evidence/screenshots/sov_07_agents_list_redacted.png',
           ]
           missing = [p for p in required if not Path(p).exists()]
           if missing:
@@ -60,15 +60,15 @@ jobs:
               'metadata/RELEASE_NOTES.md',
               'metadata/EVIDENCE_MANIFEST.json',
               'metadata/CHECKSUMS.txt',
-              'metadata/SYSTEM_OVERVIEW.md',
+              'docs/SYSTEM_OVERVIEW.md',
               'docs/PUBLIC_SCOPE.md',
               'docs/API_SURFACE.md',
               'docs/VERIFICATION.md',
-              'evidence/screenshots/01_global_state.png',
-              'evidence/screenshots/02_state_hash.png',
-              'evidence/screenshots/03_message_send_request.png',
-              'evidence/screenshots/04_message_send_response.png',
-              'evidence/screenshots/07_agents_list_redacted.png',
+              'evidence/screenshots/sov_01_global_state.png',
+              'evidence/screenshots/sov_02_state_hash.png',
+              'evidence/screenshots/sov_03_message_send_request.png',
+              'evidence/screenshots/sov_04_message_send_response.png',
+              'evidence/screenshots/sov_07_agents_list_redacted.png',
           }
           paths = {x['path'] for x in data.get('public_artifacts', [])}
           missing = sorted(expected - paths)
@@ -93,15 +93,15 @@ jobs:
               'SECURITY.md',
               'metadata/RELEASE_NOTES.md',
               'metadata/EVIDENCE_MANIFEST.json',
-              'metadata/SYSTEM_OVERVIEW.md',
+              'docs/SYSTEM_OVERVIEW.md',
               'docs/PUBLIC_SCOPE.md',
               'docs/API_SURFACE.md',
               'docs/VERIFICATION.md',
-              'evidence/screenshots/01_global_state.png',
-              'evidence/screenshots/02_state_hash.png',
-              'evidence/screenshots/03_message_send_request.png',
-              'evidence/screenshots/04_message_send_response.png',
-              'evidence/screenshots/07_agents_list_redacted.png',
+              'evidence/screenshots/sov_01_global_state.png',
+              'evidence/screenshots/sov_02_state_hash.png',
+              'evidence/screenshots/sov_03_message_send_request.png',
+              'evidence/screenshots/sov_04_message_send_response.png',
+              'evidence/screenshots/sov_07_agents_list_redacted.png',
           ]
           found = []
           for e in entries:
@@ -125,7 +125,7 @@ jobs:
           ]
           docs = [
               Path('README.md'),
-              Path('metadata/SYSTEM_OVERVIEW.md'),
+              Path('docs/SYSTEM_OVERVIEW.md'),
               Path('docs/PUBLIC_SCOPE.md'),
               Path('docs/API_SURFACE.md'),
               Path('docs/VERIFICATION.md'),
@@ -153,15 +153,15 @@ jobs:
               'SECURITY.md',
               'metadata/RELEASE_NOTES.md',
               'metadata/EVIDENCE_MANIFEST.json',
-              'metadata/SYSTEM_OVERVIEW.md',
+              'docs/SYSTEM_OVERVIEW.md',
               'docs/PUBLIC_SCOPE.md',
               'docs/API_SURFACE.md',
               'docs/VERIFICATION.md',
-              'evidence/screenshots/01_global_state.png',
-              'evidence/screenshots/02_state_hash.png',
-              'evidence/screenshots/03_message_send_request.png',
-              'evidence/screenshots/04_message_send_response.png',
-              'evidence/screenshots/07_agents_list_redacted.png',
+              'evidence/screenshots/sov_01_global_state.png',
+              'evidence/screenshots/sov_02_state_hash.png',
+              'evidence/screenshots/sov_03_message_send_request.png',
+              'evidence/screenshots/sov_04_message_send_response.png',
+              'evidence/screenshots/sov_07_agents_list_redacted.png',
           ]
           def sha256(path: Path) -> str:
               h = hashlib.sha256()
