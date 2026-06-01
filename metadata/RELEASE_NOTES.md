@@ -18,11 +18,11 @@ It is intended to document observable behavior, public-safe API surfaces, and re
 - `docs/PUBLIC_SCOPE.md`
 - `docs/API_SURFACE.md`
 - `docs/VERIFICATION.md`
-- `evidence/screenshots/01_global_state.png`
-- `evidence/screenshots/02_state_hash.png`
-- `evidence/screenshots/03_message_send_request.png`
-- `evidence/screenshots/04_message_send_response.png`
-- `evidence/screenshots/07_agents_list_redacted.png`
+- `evidence/screenshots/sov_01_global_state.png`
+- `evidence/screenshots/sov_02_state_hash.png`
+- `evidence/screenshots/sov_03_message_send_request.png`
+- `evidence/screenshots/sov_04_message_send_response.png`
+- `evidence/screenshots/sov_07_agents_list_redacted.png`
 
 ### Public evidence focus
 
