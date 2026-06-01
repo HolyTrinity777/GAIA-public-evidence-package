@@ -25,6 +25,21 @@
       "description": "Security reporting and disclosure guidance."
     },
     {
+      "path": "metadata/RELEASE_NOTES.md",
+      "type": "metadata",
+      "description": "Release notes for this version of the public evidence package."
+    },
+    {
+      "path": "metadata/EVIDENCE_MANIFEST.json",
+      "type": "metadata",
+      "description": "This manifest file listing all public artifacts."
+    },
+    {
+      "path": "metadata/CHECKSUMS.txt",
+      "type": "metadata",
+      "description": "SHA-256 checksums for all public artifacts."
+    },
+    {
       "path": "docs/SYSTEM_OVERVIEW.md",
       "type": "documentation",
       "description": "High-level system overview with private internals excluded."
@@ -45,27 +60,27 @@
       "description": "How to verify the public evidence package."
     },
     {
-      "path": "evidence/screenshots/01_global_state.png",
+      "path": "evidence/screenshots/sov_01_global_state.png",
       "type": "screenshot",
       "description": "Live global state snapshot."
     },
     {
-      "path": "evidence/screenshots/02_state_hash.png",
+      "path": "evidence/screenshots/sov_02_state_hash.png",
       "type": "screenshot",
       "description": "Integrity hash snapshot."
     },
     {
-      "path": "evidence/screenshots/03_message_send_request.png",
+      "path": "evidence/screenshots/sov_03_message_send_request.png",
       "type": "screenshot",
       "description": "Public-safe message send request body."
     },
     {
-      "path": "evidence/screenshots/04_message_send_response.png",
+      "path": "evidence/screenshots/sov_04_message_send_response.png",
       "type": "screenshot",
       "description": "Message send success response."
     },
     {
-      "path": "evidence/screenshots/07_agents_list_redacted.png",
+      "path": "evidence/screenshots/sov_07_agents_list_redacted.png",
       "type": "screenshot",
       "description": "Redacted agent list showing the swarm surface."
     }
