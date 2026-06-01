@@ -175,9 +175,7 @@ jobs:
               if not p.exists():
                   raise SystemExit(f'Missing file during hash generation: {rel}')
               out.append(f'SHA256  {rel}  {sha256(p)}')
-          Path('metadata/CHECKSUMS.txt').write_text('
-'.join(out) + '
-')
+          Path('metadata/CHECKSUMS.txt').write_text('\n'.join(out) + '\n')
           print('metadata/CHECKSUMS.txt regenerated.')
           PY
 
