@@ -10,9 +10,7 @@ The following materials are private and are not included in the public evidence 
 
 - Full agent implementations
 - Internal architecture
-- Orchestration logic
 - Weights and scoring logic
-- Routing algorithms
 - Internal metrics
 - Optimization strategies
 - Recovery mechanisms
