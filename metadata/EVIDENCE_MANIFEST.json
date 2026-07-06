@@ -10,7 +10,7 @@
       "description": "Public-facing introduction to GAIA and its evidence boundary."
     },
     {
-      "path": "LICENSE.md",
+      "path": "LICENSE",
       "type": "policy",
       "description": "License for the public evidence package only."
     },
