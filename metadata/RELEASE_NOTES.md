@@ -11,7 +11,7 @@ It is intended to document observable behavior, public-safe API surfaces, and re
 ### What this release includes
 
 - `README.md`
-- `LICENSE.md`
+- `LICENSE`
 - `PRIVATE_ACCESS.md`
 - `SECURITY.md`
 - `docs/SYSTEM_OVERVIEW.md`
