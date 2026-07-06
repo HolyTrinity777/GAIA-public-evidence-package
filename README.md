@@ -93,3 +93,7 @@ The public package is designed so a reviewer can inspect the evidence directly:
 ## Status
 
 This is a public evidence package, not a full open-source release. The goal is to make observable behavior verifiable while keeping the private core protected.
+
+## Architect/Founder/Builder
+
+**Yoihenba. Sougaijam**
