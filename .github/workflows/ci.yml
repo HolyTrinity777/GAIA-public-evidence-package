@@ -24,7 +24,7 @@ jobs:
           from pathlib import Path
           required = [
               'README.md',
-              'LICENSE.md',
+              'LICENSE',
               'PRIVATE_ACCESS.md',
               'SECURITY.md',
               'metadata/RELEASE_NOTES.md',
