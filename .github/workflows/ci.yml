@@ -54,7 +54,7 @@ jobs:
           data = json.loads(Path('metadata/EVIDENCE_MANIFEST.json').read_text())
           expected = {
               'README.md',
-              'LICENSE.md',
+              'LICENSE',
               'PRIVATE_ACCESS.md',
               'SECURITY.md',
               'metadata/RELEASE_NOTES.md',
@@ -88,7 +88,7 @@ jobs:
           entries = [ln for ln in lines if ln.startswith('SHA256  ')]
           required = [
               'README.md',
-              'LICENSE.md',
+              'LICENSE',
               'PRIVATE_ACCESS.md',
               'SECURITY.md',
               'metadata/RELEASE_NOTES.md',
@@ -147,7 +147,7 @@ jobs:
           from pathlib import Path
           public_files = [
               'README.md',
-              'LICENSE.md',
+              'LICENSE',
               'PRIVATE_ACCESS.md',
               'SECURITY.md',
               'metadata/RELEASE_NOTES.md',
